@@ -1,7 +1,7 @@
 const MessageList = ({ message, messagesEndRef, isTyping }) => {
   console.log("isTyping", isTyping);
   return (
-    <div className="bg-[url(./images/chat.jpg)] h-[60vh] overflow-y-auto bg-cover bg-center bg-no-repeat p-3 custom-scrollbar flex flex-col gap-3">
+    <div className="chat-bg-img h-[60vh] overflow-y-auto  p-3 custom-scrollbar flex flex-col gap-3">
       {message.map((item, i) => (
         <div
           key={i}
