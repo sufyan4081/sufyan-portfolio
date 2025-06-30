@@ -3,12 +3,12 @@ Welcome to my portfolio! This project showcases my skills, projects, and experie
 
 ### Weblink: [Live Website](https://portfolio-lgi2.onrender.com)
 ## Some Images:
-<img width="450px;" src="https://github.com/sufyan4081/Portfolio/blob/master/src/assets/Home%20page.png?raw=true"/>
-<img width="450px;" src="https://github.com/sufyan4081/Portfolio/blob/master/src/assets/skills.png?raw=true"/>
-<img width="450px;" src="https://github.com/sufyan4081/Portfolio/blob/master/src/assets/experience.png?raw=true"/>
-<img width="450px;" src="https://github.com/sufyan4081/Portfolio/blob/master/src/assets/projects.png?raw=true"/>
-<img width="450px;" src="https://github.com/sufyan4081/Portfolio/blob/master/src/assets/education.png?raw=true"/>
-<img width="450px;" src="https://github.com/sufyan4081/Portfolio/blob/master/src/assets/contact.png?raw=true"/>
+<img width="450px;" src="https://github.com/sufyan4081/sufyan-portfolio/blob/master/src/assets/Home%20page.png?raw=true"/>
+<img width="450px;" src="https://github.com/sufyan4081/sufyan-portfolio/blob/master/src/assets/skills.png?raw=true"/>
+<img width="450px;" src="https://github.com/sufyan4081/sufyan-portfolio/blob/master/src/assets/experience.png?raw=true"/>
+<img width="450px;" src="https://github.com/sufyan4081/sufyan-portfolio/blob/master/src/assets/projects.png?raw=true"/>
+<img width="450px;" src="https://github.com/sufyan4081/sufyan-portfolio/blob/master/src/assets/education.png?raw=true"/>
+<img width="450px;" src="https://github.com/sufyan4081/sufyan-portfolio/blob/master/src/assets/contact.png?raw=true"/>
 
 
 ## Table of Contents
