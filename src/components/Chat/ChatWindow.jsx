@@ -6,7 +6,9 @@ import { io } from "socket.io-client";
 const ChatWindow = () => {
   const [isTyping, setIsTyping] = useState(true);
   //socket
-  const socket = useRef(io("http://localhost:5000")).current;
+  const socket = useRef(
+    io("https://sufyan-portfolio-backend.onrender.com")
+  ).current;
 
   const messagesEndRef = useRef(null);
   // calculate current time
