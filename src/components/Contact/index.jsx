@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { Snackbar } from "@mui/material";
+import { sendEmail } from "../../api/sendEmail/sendEmail";
+import * as Yup from "yup";
+import { useFormik } from "formik";
 
 const Container = styled.div`
   display: flex;
@@ -64,7 +67,7 @@ const ContactForm = styled.form`
   border-radius: 16px;
   box-shadow: rgba(23, 92, 230, 0.15) 0px 4px 24px;
   margin-top: 28px;
-  gap: 12px;
+  // gap: 5px;
 `;
 
 const ContactTitle = styled.div`
@@ -86,6 +89,7 @@ const ContactInput = styled.input`
   &:focus {
     border: 1px solid ${({ theme }) => theme.primary};
   }
+  width: 100%;
 `;
 
 const ContactInputMessage = styled.textarea`
@@ -100,6 +104,7 @@ const ContactInputMessage = styled.textarea`
   &:focus {
     border: 1px solid ${({ theme }) => theme.primary};
   }
+  width: 100%;
 `;
 
 const ContactButton = styled.input`
@@ -132,31 +137,69 @@ const ContactButton = styled.input`
   cursor: pointer;
 `;
 
-const Contact = () => {
-  //hooks
-  const [open, setOpen] = React.useState(false);
-  const form = useRef();
+const ErrorTag = styled.p`
+  color: red;
+  font-size: 11px;
+`;
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    emailjs
-      .sendForm(
-        "service_7jj7zcu",
-        "template_omqqnqg",
-        form.current,
-        "Mznnb3txjNxKL-21H"
-      )
-      .then(
-        (result) => {
-          setOpen(true);
-          form.current.reset();
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
+const InputWrapper = styled.div`
+  height: 72px;
+`;
+
+const MessageInputWrapper = styled.div`
+  height: 160px;
+`;
+
+const Contact = () => {
+  const initialValues = {
+    name: "",
+    email: "",
+    sub: "",
+    msg: "",
   };
 
+  const [loading, setLoading] = useState(false);
+
+  const validationSchema = Yup.object({
+    name: Yup.string().trim().required("Name is required"),
+    email: Yup.string().email().required("Email is required"),
+    sub: Yup.string().trim().required("Subject is required"),
+    msg: Yup.string().trim().required("Message is required"),
+  });
+
+  const onSubmit = async (values) => {
+    try {
+      setLoading(true);
+      const response = await sendEmail(values);
+      if (response) {
+        setLoading(false);
+        handleReset();
+      }
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+    }
+  };
+
+  const formik = useFormik({
+    initialValues,
+    validationSchema,
+    onSubmit,
+  });
+
+  const {
+    values,
+    errors,
+    touched,
+    handleChange,
+    handleBlur,
+    handleSubmit,
+    resetForm,
+  } = formik;
+
+  const handleReset = () => {
+    resetForm();
+  };
   return (
     <Container>
       <Wrapper>
@@ -164,21 +207,61 @@ const Contact = () => {
         <Desc>
           Feel free to reach out to me for any questions or opportunities!
         </Desc>
-        <ContactForm ref={form} onSubmit={handleSubmit}>
+        <ContactForm>
           <ContactTitle>Email Me 🚀</ContactTitle>
-          <ContactInput placeholder="Your Email" name="from_email" />
-          <ContactInput placeholder="Your Name" name="from_name" />
-          <ContactInput placeholder="Subject" name="subject" />
-          <ContactInputMessage placeholder="Message" rows="4" name="message" />
-          <ContactButton type="submit" value="Send" />
+          <InputWrapper>
+            <ContactInput
+              placeholder="Your Email"
+              name="email"
+              value={values.email}
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+            <ErrorTag>{touched.email && errors.email}</ErrorTag>
+          </InputWrapper>
+          <InputWrapper>
+            <ContactInput
+              placeholder="Your Name"
+              name="name"
+              value={values.name}
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+            <ErrorTag>{touched.name && errors.name}</ErrorTag>
+          </InputWrapper>
+          <InputWrapper>
+            <ContactInput
+              placeholder="Subject"
+              name="sub"
+              value={values.sub}
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+            <ErrorTag>{touched.sub && errors.sub}</ErrorTag>
+          </InputWrapper>
+          <MessageInputWrapper>
+            <ContactInputMessage
+              placeholder="Message"
+              rows="4"
+              name="msg"
+              value={values.msg}
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+            <ErrorTag>{touched.msg && errors.msg}</ErrorTag>
+          </MessageInputWrapper>
+          <ContactButton
+            type="submit"
+            value="Send"
+            disabled={loading}
+            style={{
+              opacity: loading ? 0.5 : 1,
+              cursor: loading ? "not-allowed" : "pointer",
+            }}
+            onClick={handleSubmit}
+          />
+          {/* <ContactButton type="reset" value="Reset" onClick={handleReset} /> */}
         </ContactForm>
-        <Snackbar
-          open={open}
-          autoHideDuration={6000}
-          onClose={() => setOpen(false)}
-          message="Email sent successfully!"
-          severity="success"
-        />
       </Wrapper>
     </Container>
   );
