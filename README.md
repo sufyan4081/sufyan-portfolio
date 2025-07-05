@@ -45,7 +45,7 @@ To run this portfolio locally, follow these steps:
 2. Navigate to the project directory: `cd Portfolio`
 3. Install the dependencies: `npm install`
 4. Start the development server: `npm start`
-5. Open your browser and visit: `http://localhost:3000`
+5. Open your browser and visit: `http://localhost:5173`
 
 ## Usage
 After installing and running the project locally, you can navigate through the different sections of the portfolio using the navigation menu. Explore the About Me section to learn more about my background and skills. Visit the Projects section to see detailed information about my projects, including descriptions and screenshots. Use the Contact section to send me a message or inquiry.

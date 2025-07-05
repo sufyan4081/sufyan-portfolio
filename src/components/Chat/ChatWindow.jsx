@@ -4,11 +4,10 @@ import MessageList from "./MessageList.jsx";
 import logo from "../../assets/logo.png";
 import { io } from "socket.io-client";
 const ChatWindow = () => {
+  const ORIGIN = import.meta.env.VITE_BASE_URL;
   const [isTyping, setIsTyping] = useState(true);
   //socket
-  const socket = useRef(
-    io("https://sufyan-portfolio-backend.onrender.com")
-  ).current;
+  const socket = useRef(io(ORIGIN)).current;
 
   const messagesEndRef = useRef(null);
   // calculate current time
@@ -61,7 +60,7 @@ const ChatWindow = () => {
   console.log("message", message);
   return (
     <>
-      <div className=" border-1 rounded-full w-sm">
+      <div className="border rounded-md border-purple-600 w-[290px] lg:w-[400px] h-[54vh] lg:h-[70vh]">
         <div className="h-16 rounded-tr-md rounded-tl-md bg-purple-600 text-white shadow flex items-center ">
           <img
             src={logo}
