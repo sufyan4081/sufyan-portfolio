@@ -5,7 +5,7 @@ export const Bio = {
     "I am a motivated and versatile individual, always eager to take on new challenges. With a passion for learning I am dedicated to delivering high-quality results. With a positive attitude and a growth mindset, I am ready to make a meaningful contribution and achieve great things.",
   github: "https://github.com/sufyan4081",
   resume:
-    "https://drive.google.com/file/d/174SUb625-_N15_zKmUmjKxH2shkMbqRp/view?usp=sharing",
+    "https://drive.google.com/file/d/1np-RkP_nzIjeXr9nvwu5ohFRF4u40jKO/view?usp=drive_link",
   linkedin: "http://linkedin.com/in/sufyanur-rasheed/",
   twitter: "https://twitter.com",
   Instagram: "https://www.instagram.com/s__rasheed/",
