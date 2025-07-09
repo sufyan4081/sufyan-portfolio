@@ -3,8 +3,8 @@ import MessageInput from "./MessageInput.jsx";
 import MessageList from "./MessageList.jsx";
 import logo from "../../assets/logo.png";
 import { io } from "socket.io-client";
+const ORIGIN = import.meta.env.VITE_BASE_URL;
 const ChatWindow = () => {
-  const ORIGIN = import.meta.env.VITE_BASE_URL;
   const [isTyping, setIsTyping] = useState(true);
   //socket
   const socket = useRef(io(ORIGIN)).current;
