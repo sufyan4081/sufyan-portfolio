@@ -3,9 +3,9 @@ export const Bio = {
   roles: ["ReactJS Developer", "MERN Stack Developer"],
   description:
     "I am a motivated and versatile individual, always eager to take on new challenges. With a passion for learning I am dedicated to delivering high-quality results. With a positive attitude and a growth mindset, I am ready to make a meaningful contribution and achieve great things.",
-  github: "https://github.com/sufyan4081",
+  github: "https://github.com/sufyanur-dev",
   resume:
-    "https://drive.google.com/file/d/1Rx67UnTYnNiAF01wZno60BDg82aKo8cr/view?usp=sharing",
+    "https://drive.google.com/file/d/1XCEN_G6QmhE7CR7m5fRvTd1X19OcVbEe/view?usp=sharing",
   linkedin: "http://linkedin.com/in/sufyanur-rasheed/",
   twitter: "https://twitter.com",
   Instagram: "https://www.instagram.com/s__rasheed/",
